@@ -1,12 +1,6 @@
-const express = require("express");
-const app = express();
-const PORT = 3000;
-
 let users = [];
 
-app.use(express.json());
-
-app.post('/users', (req, res) => {
+const createUser = (req, res) => {
     const { name } = req.body;
     if (!name) return res.status(400).json({ error: "O campo 'name' é obrigatório." });
 
@@ -15,13 +9,14 @@ app.post('/users', (req, res) => {
 
     users.push(newUser)
     res.status(201).json({ message: "Usuário criado com sucesso!", user: newUser });
-})
 
-app.get('/users', (req, res) => {
+}
+
+const getUsers = (req, res) => {
     res.status(200).json({ message: "Lista de usuários", users });
-})
+}
 
-app.put('/users/:id', (req, res) => {
+const updateUser = (req, res) => {
     const { id } = req.params;
     const { name } = req.body;
     const user = users.find((element) => element.id == id);
@@ -32,9 +27,9 @@ app.put('/users/:id', (req, res) => {
     } else {
         res.status(404).json({ error: `Usuário com ID ${id} não encontrado.` })
     }
-})
+}
 
-app.delete('/users/:id', (req, res) => {
+const deleteUser = (req, res) => {
     const { id } = req.params;
     const initialLength = users.length;
 
@@ -45,8 +40,11 @@ app.delete('/users/:id', (req, res) => {
     } else {
         res.status(404).json({ error: `Usuário de ID ${id} não encontrado.` })
     }
-})
+}
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`)
-})
+module.exports = {
+    createUser,
+    getUsers,
+    updateUser,
+    deleteUser
+}
