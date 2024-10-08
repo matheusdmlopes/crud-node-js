@@ -1,8 +1,18 @@
-let users = [];
+import { Request, Response } from "express";
 
-const createUser = (req, res) => {
+interface User {
+    id: number,
+    name: string
+}
+
+let users: User[] = [];
+
+export const createUser = (req: Request, res: Response): void => {
     const { name } = req.body;
-    if (!name) return res.status(400).json({ error: "O campo 'name' é obrigatório." });
+    if (!name) {
+        res.status(400).json({ error: "O campo 'name' é obrigatório." })
+        return;
+    };
 
     const id = users.length + 1;
     const newUser = { id, name };
@@ -11,14 +21,14 @@ const createUser = (req, res) => {
     res.status(201).json({ message: "Usuário criado com sucesso!", user: newUser });
 }
 
-const getUsers = (req, res) => {
+export const getUsers = (req: Request, res: Response): void => {
     res.status(200).json({ message: "Lista de usuários", users });
 }
 
-const updateUser = (req, res) => {
+export const updateUsers = (req: Request, res: Response): void => {
     const { id } = req.params;
     const { name } = req.body;
-    const user = users.find((element) => element.id == id);
+    const user = users.find((element) => element.id == parseInt(id));
 
     if (user) {
         user.name = name;
@@ -28,7 +38,7 @@ const updateUser = (req, res) => {
     }
 }
 
-const deleteUser = (req, res) => {
+export const deleteUser = (req: Request, res: Response): void => {
     const { id } = req.params;
     const initialLength = users.length;
 
@@ -39,11 +49,4 @@ const deleteUser = (req, res) => {
     } else {
         res.status(404).json({ error: `Usuário de ID ${id} não encontrado.` })
     }
-}
-
-module.exports = {
-    createUser,
-    getUsers,
-    updateUser,
-    deleteUser
 }
