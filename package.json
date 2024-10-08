@@ -1,17 +1,18 @@
 {
   "name": "crud-node",
   "version": "1.0.0",
-  "description": "",
+  "description": "CRUD básico em Node.js com Express",
   "main": "crud-basico.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node crud-node.js",
+    "dev": "nodemon crud-node.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/matheusdmlopes/crud-node-js.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Matheus De Marco Lopes",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/matheusdmlopes/crud-node-js/issues"
@@ -19,5 +20,8 @@
   "homepage": "https://github.com/matheusdmlopes/crud-node-js#readme",
   "dependencies": {
     "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }

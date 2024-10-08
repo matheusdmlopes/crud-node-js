@@ -1,23 +1,70 @@
-# CRUD API em Node.js com Express
+# CRUD Básico em Node.js com Express
 
-Este é um projeto simples de CRUD para gerenciamento de usuários, utilizando Node.js e Express. Ele permite criar, ler, atualizar e deletar usuários em uma API RESTful.
+Este é um projeto básico de um CRUD (Create, Read, Update, Delete) feito em Node.js utilizando o framework Express.
+
+## Funcionalidades
+
+- **Criar Usuário:** Adiciona um novo usuário à lista com um nome e ID gerado automaticamente.
+- **Listar Usuários:** Retorna a lista completa de usuários cadastrados.
+- **Atualizar Usuário:** Atualiza o nome de um usuário existente na lista.
+- **Deletar Usuário:** Remove um usuário da lista com base em seu ID.
 
 ## Tecnologias Utilizadas
+- JavaScript
+- TypeScript
 - Node.js
 - Express
 - Nodemon (para desenvolvimento)
 - Postman (para testes)
 
 ## Pré-requisitos
-Antes de começar, você precisa ter o Node.js e npm instalados em sua máquina.
 
-## Instalação
+Antes de começar, você precisará ter o Node.js e o NPM instalados na sua máquina. Se você ainda não os tem, você pode baixá-los aqui:
+- [Node.js](https://nodejs.org/) (a instalação do Node.js já inclui o NPM)
+
+## Instalação e Configuração
+
+Siga as etapas abaixo para configurar o projeto na sua máquina local:
+
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone git@github.com:matheusdmlopes/crud-node-js.git
 
-# Entre no diretório do projeto
-cd nome-do-repositorio
+# Navegue até a pasta do projeto
+cd crud-node-js
 
 # Instale as dependências
 npm install
+
+# Inicie o servidor com Nodemon
+npm run dev
+
+```
+
+## Uso
+
+Você pode testar os endpoints utilizando o Postman ou qualquer outra ferramenta para testes de API.
+
+### Endpoints
+
+1. Criar um novo usuário (POST):
+
+URL: /users
+Body: { "name": "Nome do Usuário" }
+Resposta de sucesso: { "message": "Usuário criado com sucesso!", "user": { "id": 1, "name": "Nome do Usuário" } }
+
+2. Listar todos os usuários (GET):
+
+URL: /users
+Resposta de sucesso: { "message": "Lista de usuários:", "users": [...] }
+
+3. Atualizar um usuário (PUT):
+
+URL: /users/:id
+Body: { "name": "Novo Nome" }
+Resposta de sucesso: { "message": "Usuário de ID 1 atualizado!", "name": "Novo Nome" }
+
+4. Deletar um usuário (DELETE):
+
+URL: /users/:id
+Resposta de sucesso: { "message": "Usuário de ID 1 deletado." }
