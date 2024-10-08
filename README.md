@@ -47,24 +47,43 @@ Você pode testar os endpoints utilizando o Postman ou qualquer outra ferramenta
 
 ### Endpoints
 
-1. Criar um novo usuário (POST):
+1. **Criar um novo usuário (POST):**
 
-    URL: /users
-    Body: { "name": "Nome do Usuário" }
-    Resposta de sucesso: { "message": "Usuário criado com sucesso!", "user": { "id": 1, "name": "Nome do Usuário" } }
+    - **URL:** `/users`
+    - **Body:** 
+      ```json
+      { "name": "Nome do Usuário" }
+      ```
+    - **Resposta de sucesso:**
+      ```json
+      { "message": "Usuário criado com sucesso!", "user": { "id": 1, "name": "Nome do Usuário" } }
+      ```
 
-2. Listar todos os usuários (GET):
+2. **Listar todos os usuários (GET):**
 
-    URL: /users
-    Resposta de sucesso: { "message": "Lista de usuários:", "users": [...] }
+    - **URL:** `/users`
+    - **Resposta de sucesso:**
+      ```json
+      { "message": "Lista de usuários:", "users": [...] }
+      ```
 
-3. Atualizar um usuário (PUT):
+3. **Atualizar um usuário (PUT):**
 
-    URL: /users/:id
-    Body: { "name": "Novo Nome" }
-    Resposta de sucesso: { "message": "Usuário de ID 1 atualizado!", "name": "Novo Nome" }
+    - **URL:** `/users/:id`
+    - **Body:**
+      ```json
+      { "name": "Novo Nome" }
+      ```
+    - **Resposta de sucesso:**
+      ```json
+      { "message": "Usuário de ID 1 atualizado!", "name": "Novo Nome" }
+      ```
 
-4. Deletar um usuário (DELETE):
+4. **Deletar um usuário (DELETE):**
 
-    URL: /users/:id
-    Resposta de sucesso: { "message": "Usuário de ID 1 deletado." }
+    - **URL:** `/users/:id`
+    - **Resposta de sucesso:**
+      ```json
+      { "message": "Usuário de ID 1 deletado." }
+      ```
+
