@@ -36,8 +36,13 @@ cd crud-node-js
 # Instale as dependências
 npm install
 
-# Inicie o servidor com Nodemon
-npm run dev
+# Inicie o servidor
+
+# JavaScript
+npm run dev:js
+
+# TypeScript
+npm run dev:ts
 
 ```
 
