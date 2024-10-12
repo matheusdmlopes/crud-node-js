@@ -81,7 +81,7 @@ Você pode testar os endpoints utilizando o Postman ou qualquer outra ferramenta
       ```
     - **Resposta de sucesso:**
       ```json
-      { "message": "Usuário de ID 1 atualizado!", "name": "Novo Nome" }
+      { "message": "Usuário de ID :id atualizado!", "name": "Novo Nome" }
       ```
 
 4. **Deletar um usuário (DELETE):**
@@ -89,6 +89,6 @@ Você pode testar os endpoints utilizando o Postman ou qualquer outra ferramenta
     - **URL:** `/users/:id`
     - **Resposta de sucesso:**
       ```json
-      { "message": "Usuário de ID 1 deletado." }
+      { "message": "Usuário de ID :id deletado." }
       ```
 

@@ -8,7 +8,7 @@
     "dev:js": "nodemon javascript/src/server.js",
     "build:ts": "tsc -p ./typescript/tsconfig.json",
     "start:ts": "npm run build:ts && node typescript/dist/server.js",
-    "dev:ts": "tsc -p ./typescript/tsconfig.json -w & nodemon --watch typescript/src typescript/dist/server.js"
+    "dev:ts": "npm run build:ts && nodemon --watch typescript/src typescript/dist/server.js"
   },
   "repository": {
     "type": "git",

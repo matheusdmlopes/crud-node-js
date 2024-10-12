@@ -2,7 +2,10 @@ let users = [];
 
 const createUser = (req, res) => {
     const { name } = req.body;
-    if (!name) return res.status(400).json({ error: "O campo 'name' é obrigatório." });
+    if (typeof name !== 'string' || name.trim() === '' || !name) {
+        res.status(400).json({ error: "O campo 'name' é obrigatório e deve ser uma string não vazia." })
+        return;
+    }
 
     const id = users.length + 1;
     const newUser = { id, name };
